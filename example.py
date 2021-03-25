@@ -25,14 +25,14 @@ for item in output:
         panelsUsed.append(item[3])
         
 for panel in panelsUsed:
-    im = Image.new('RGB', ((panels[0].length), (panels[0].width)), (128, 128, 128))
+    im = Image.new('RGB', ((panels[0].width), (panels[0].length)), (128, 128, 128))
     draw = ImageDraw.Draw(im)
     
     for o in output:
         if o[3] == panel:
             print("Board \"" + o[1] + "\" #" + str(o[2]) + " on panel \"" + o[3] + "\" #" + str(o[4]) + " at (" + str(o[0].x) + ", " + str(o[0].y) + ", " + str(o[0].w) +", " + str(o[0].h) +")")
 
-            draw.rectangle([(o[0].x, o[0].y), (o[0].h, o[0].h)], fill=(0, 192, 192), outline=(255, 255, 255))
+            draw.rectangle((o[0].x, o[0].y, o[0].w, o[0].h), fill=(0, 192, 192), outline=(255, 255, 255))
             # font = ImageFont.load_default()
             # draw.text((o[0].x+2, o[0].y+2), str(o[0].h) + "," + str(o[0].w), font=font)
 
